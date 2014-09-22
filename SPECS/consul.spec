@@ -1,7 +1,7 @@
 Name:           consul
 Version:        0.4.0
 Release:        1%{?dist}
-Summary:        Consul is a tool for service discovery and configuration
+Summary:        A tool for service discovery and configuration
 Group:          System Environment/Daemons
 License:        MPLv2.0
 URL:            http://www.consul.io
