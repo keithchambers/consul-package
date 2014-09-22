@@ -18,6 +18,8 @@ discovery and configuration.
 %prep
 %setup -c -n %{version}_linux_amd64
 
+%build
+
 %install
 install -m0755 -d %{buildroot}/%{_bindir}
 install -m0755 -d %{buildroot}/%{_sysconfdir}/%{name}.d
