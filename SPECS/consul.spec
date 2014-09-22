@@ -48,12 +48,12 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %{_bindir}/%{name}
 %{_sysconfdir}/%{name}.d
-%{_sysconfdir}/sysconfig/%{name}
 %{_sharedstatedir}/%{name}
 %{_unitdir}/%{name}.service
 
 %changelog
-* Sun Sep 14 2014 Keith Chambers 0.4.0-1
+* Sun Sep 14 2014 Keith Chambers - 0.4.0-1
 - Initial package spec.
