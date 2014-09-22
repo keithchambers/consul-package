@@ -1,24 +1,21 @@
-%define debug_package %{nil}
-
 Name:           consul
 Version:        0.4.0
 Release:        1%{?dist}
 Summary:        Consul is a tool for service discovery and configuration
 Group:          System Environment/Daemons
-License:        MPL2
+License:        MPLv2.0
 URL:            http://www.consul.io
 Source0:        https://dl.bintray.com/mitchellh/consul/%{version}_linux_amd64.zip
 Source1:        %{name}.sysconfig
 Source2:        %{name}.service
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:      x86_64
-
 BuildRequires:  systemd-units
 Requires:       systemd
 
 %description
-Consul is a tool for service discovery and configuration. Consul is distributed,
-highly available, and extremely scalable.
+A distributed, highly available, and extremely scalable tool for service
+discovery and configuration.
 
 %prep
 %setup -c -n %{version}_linux_amd64
