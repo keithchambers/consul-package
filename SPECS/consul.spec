@@ -2,13 +2,11 @@ Name:           consul
 Version:        0.4.0
 Release:        1%{?dist}
 Summary:        A tool for service discovery and configuration
-Group:          System Environment/Daemons
 License:        MPLv2.0
 URL:            http://www.consul.io
 Source0:        https://dl.bintray.com/mitchellh/consul/%{version}_linux_amd64.zip
 Source1:        %{name}.sysconfig
 Source2:        %{name}.service
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:      x86_64
 BuildRequires:  systemd-units
 Requires:       systemd
@@ -20,16 +18,12 @@ discovery and configuration.
 %prep
 %setup -c -n %{version}_linux_amd64
 
-%build
-
 %install
-rm -rf %{buildroot}
 install -m0755 -d %{buildroot}/%{_bindir}
 install -m0755 -d %{buildroot}/%{_sysconfdir}/%{name}.d
 install -m0755 -d %{buildroot}/%{_sysconfdir}/sysconfig
 install -m0755 -d %{buildroot}/%{_sharedstatedir}/%{name}
 install -m0755 -d %{buildroot}/%{_unitdir}
-
 install -m0755 %{name} %{buildroot}/%{_bindir}
 install -m0644 %{_sourcedir}/%{name}.sysconfig %{buildroot}/%{_sysconfdir}/sysconfig/%{name}
 install -m0644 %{_sourcedir}/%{name}.service %{buildroot}/%{_unitdir}
@@ -43,11 +37,7 @@ install -m0644 %{_sourcedir}/%{name}.service %{buildroot}/%{_unitdir}
 %postun
 %systemd_postun_with_restart %{name}.service
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root,-)
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %{_bindir}/%{name}
 %{_sysconfdir}/%{name}.d
