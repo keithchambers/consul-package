@@ -1,3 +1,5 @@
+%define debug_package %{nil}
+
 Name:           consul
 Version:        0.4.0
 Release:        1%{?dist}
