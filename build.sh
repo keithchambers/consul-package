@@ -16,7 +16,6 @@ mock --rebuild \
         --verbose \
         --define "dist .el7" \
         --resultdir="${TOP_DIR}/RPMS" \
-        --define "commit ${COMMIT}" \
         ${TOP_DIR}/SRPMS/*.src.rpm
 
 # EOF
