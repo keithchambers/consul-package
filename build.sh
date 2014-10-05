@@ -1,9 +1,8 @@
 #!/bin/bash
 
-TOP_DIR=${PWD}
+TOP_DIR="${1:-${PWD}}"
 
-rm -rf "${TOP_DIR}/RPMS"
-rm -rf "%{TOP_DIR}/SRPMS"
+rm -rf "${TOP_DIR}/RPMS" "${TOP_DIR}/SRPMS"
 
 mock --buildsrpm \
         --verbose \
