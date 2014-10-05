@@ -50,3 +50,4 @@ install -m0644 %{_sourcedir}/%{name}.service %{buildroot}/%{_unitdir}
 
 %changelog
 * %(date "+%a %b %d %Y") %{name} - %{version}-%{release}
+- build %{name} - %{version}-%{release}
