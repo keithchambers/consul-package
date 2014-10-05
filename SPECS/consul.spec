@@ -12,6 +12,7 @@ Source2:        %{name}.service
 BuildArch:      x86_64
 BuildRequires:  systemd-units
 Requires:       systemd
+requires:       shadow-utils
 
 %description
 A distributed, highly available, and extremely scalable tool for service
