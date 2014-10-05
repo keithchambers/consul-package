@@ -32,6 +32,10 @@ install -m0755 %{name} %{buildroot}/%{_bindir}
 install -m0644 %{_sourcedir}/%{name}.sysconfig %{buildroot}/%{_sysconfdir}/sysconfig/%{name}
 install -m0644 %{_sourcedir}/%{name}.service %{buildroot}/%{_unitdir}
 
+%pre
+getent group  %{name} >/dev/null || groupadd -r %{name}
+getent passwd %{name} >/dev/null || useradd -r -g %{name} -s /sbin/nologin -c "%{name} daemon" %{name}
+
 %post
 %systemd_post %{name}.service
 
@@ -40,13 +44,15 @@ install -m0644 %{_sourcedir}/%{name}.service %{buildroot}/%{_unitdir}
 
 %postun
 %systemd_postun_with_restart %{name}.service
+userdel  %{name}
+groupdel %{name}
 
 %files
 %{_bindir}/%{name}
 %{_sysconfdir}/%{name}.d
-%{_sharedstatedir}/%{name}
 %{_unitdir}/%{name}.service
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
+%attr(0750,%{name},%{name}) %{_sharedstatedir}/%{name}
 
 %changelog
 * %(date "+%a %b %d %Y") %{name} - %{version}-%{release}
