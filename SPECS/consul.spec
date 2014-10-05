@@ -42,12 +42,11 @@ install -m0644 %{_sourcedir}/%{name}.service %{buildroot}/%{_unitdir}
 %systemd_postun_with_restart %{name}.service
 
 %files
-%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %{_bindir}/%{name}
 %{_sysconfdir}/%{name}.d
 %{_sharedstatedir}/%{name}
 %{_unitdir}/%{name}.service
+%config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 
 %changelog
-* Sun Sep 14 2014 Keith Chambers - 0.4.0-1
-- Initial package spec.
+* %(date "+%a %b %d %Y") %{name} - %{version}-%{release}
