@@ -1,17 +1,17 @@
 %define debug_package %{nil}
 
-Name:           consul
-Version:        0.4.0
-Release:        1%{?dist}
-Summary:        Consul is a tool for service discovery and configuration.
-License:        MPLv2.0
-URL:            http://www.consul.io
-Source0:        https://dl.bintray.com/mitchellh/consul/%{version}_linux_amd64.zip
-Source1:        %{name}.sysconfig
-Source2:        %{name}.service
-BuildArch:      x86_64
-BuildRequires:  systemd-units
-Requires:       systemd
+name:           consul
+version:        0.4.0
+release:        1%{?dist}
+summary:        Consul is a tool for service discovery and configuration.
+license:        MPLv2.0
+url:            http://www.consul.io
+source0:        https://dl.bintray.com/mitchellh/consul/%{version}_linux_amd64.zip
+source1:        %{name}.sysconfig
+source2:        %{name}.service
+buildarch:      x86_64
+buildrequires:  systemd-units
+requires:       systemd
 requires:       shadow-utils
 
 %description
