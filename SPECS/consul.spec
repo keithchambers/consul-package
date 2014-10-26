@@ -1,15 +1,14 @@
 %define debug_package %{nil}
 
 name:           consul
-version:        0.4.0
+version:        0.4.1
 release:        1%{?dist}
-summary:        Consul is a tool for service discovery and configuration.
+summary:        Consul is a tool for service discovery and configuration
 license:        MPLv2.0
 url:            http://www.consul.io
 source0:        https://dl.bintray.com/mitchellh/consul/%{version}_linux_amd64.zip
 source1:        %{name}.sysconfig
 source2:        %{name}.service
-buildarch:      x86_64
 buildrequires:  systemd-units
 requires:       systemd
 requires:       shadow-utils
@@ -45,7 +44,7 @@ getent passwd %{name} >/dev/null || useradd -r -g %{name} -s /sbin/nologin -c "%
 
 %postun
 %systemd_postun_with_restart %{name}.service
-userdel  %{name}
+userdel %{name}
 groupdel %{name}
 
 %files
