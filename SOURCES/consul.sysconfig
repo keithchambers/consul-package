@@ -1,1 +1,1 @@
-CMD_OPTS="GOMAXPROCS=2 agent -config-dir /etc/consul.d -data-dir /var/lib/consul"
+CMD_OPTS="agent -config-dir /etc/consul.d -data-dir /var/lib/consul"
