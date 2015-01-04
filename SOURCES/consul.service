@@ -4,6 +4,7 @@ Documentation=http://www.consul.io
 
 [Service]
 User=consul
+Environment="GOMAXPROCS=2"
 EnvironmentFile=-/etc/sysconfig/consul
 ExecStart=/usr/bin/consul $CMD_OPTS
 ExecReload=/bin/kill -HUP $MAINPID
